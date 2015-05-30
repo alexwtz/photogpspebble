@@ -14,21 +14,6 @@
                 "type": "png-trans"
             },
             {
-                "file": "images/camera130_trans.png",
-                "name": "CAMERA",
-                "type": "png-trans"
-            },
-            {
-                "file": "images/widget_back_small2_bw.png",
-                "name": "FOND_BW",
-                "type": "png"
-            },
-            {
-                "file": "images/widget_back_small.png",
-                "name": "IMAGE_BACK",
-                "type": "png-trans"
-            },
-            {
                 "file": "images/location_icon.png",
                 "name": "LOCATION",
                 "type": "png-trans"
