@@ -1,0 +1,60 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "alexwtz@gmail.com",
+    "longName": "PhotoGPS",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/camera120_trans.png",
+                "name": "CAMERA120",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/camera130_trans.png",
+                "name": "CAMERA",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/widget_back_small2_bw.png",
+                "name": "FOND_BW",
+                "type": "png"
+            },
+            {
+                "file": "images/widget_back_small.png",
+                "name": "IMAGE_BACK",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/location_icon.png",
+                "name": "LOCATION",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/location.png",
+                "name": "IMAGE_ACTION_ICON_LOCATION",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/icon28x28.png",
+                "menuIcon": true,
+                "name": "ICON_28",
+                "type": "png"
+            }
+        ]
+    },
+    "sdkVersion": "3",
+    "shortName": "PhotoGPS",
+    "targetPlatforms": [
+        "aplite",
+        "basalt"
+    ],
+    "uuid": "53f5bf60-73bc-4a9b-9f28-97a9a92923b9",
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": false
+    }
+}
