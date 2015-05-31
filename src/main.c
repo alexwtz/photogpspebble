@@ -7,6 +7,7 @@
 
 #define KEY_DATA 5
 #define TAKE_GPS_LOCATION 25
+#define RESTART_SESSION 42
 
 static Window *s_main_window;
 static TextLayer *s_output_layer;
@@ -26,6 +27,10 @@ static void up_click_handler(ClickRecognizerRef recognizer, void *context) {
    send_int(KEY_DATA,TAKE_GPS_LOCATION);
 }
 
+static void down_click_handler(ClickRecognizerRef recognizer, void *context) {
+   send_int(KEY_DATA,RESTART_SESSION);
+}
+
 static void inbox_received_callback(DictionaryIterator *iterator, void *context) {
   // Get the first pair
   Tuple *t = dict_read_first(iterator);
@@ -39,7 +44,7 @@ static void inbox_received_callback(DictionaryIterator *iterator, void *context)
     switch (t->key) {
       case KEY_DATA:
         // Copy value and display
-        snprintf(s_buffer, sizeof(s_buffer), "Received '%s'", t->value->cstring);
+        snprintf(s_buffer, sizeof(s_buffer), " %s", t->value->cstring);
         text_layer_set_text(s_output_layer, s_buffer);
         break;
     }
@@ -52,6 +57,7 @@ static void inbox_received_callback(DictionaryIterator *iterator, void *context)
 //Config des bouttons
 static void config_provider(void *ctx) {
   window_single_click_subscribe(BUTTON_ID_UP, up_click_handler);
+  window_single_click_subscribe(BUTTON_ID_DOWN, down_click_handler);
 }
 
 static void inbox_dropped_callback(AppMessageResult reason, void *context) {
@@ -101,13 +107,13 @@ static void main_window_load(Window *window) {
   // Set the icons:
   // The loading the icons is omitted for brevity... See HeapBitmap.
   action_bar_layer_set_icon(s_action_bar_layer, BUTTON_ID_UP, my_icon_location);
- // action_bar_layer_set_icon(s_action_bar_layer, BUTTON_ID_DOWN, my_icon_stop);
+  action_bar_layer_set_icon(s_action_bar_layer, BUTTON_ID_DOWN, my_icon_stop);
   
     
   // Create output TextLayer
   s_output_layer = text_layer_create(GRect(8, 130, 110, 25));
   //text_layer_set_font(s_output_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24));
-  text_layer_set_text(s_output_layer, "Waiting...");
+  text_layer_set_text(s_output_layer, " Save pos");
   text_layer_set_text_color(s_output_layer,GColorWhite);
   text_layer_set_background_color(s_output_layer,GColorBlack);
   text_layer_set_overflow_mode(s_output_layer, GTextOverflowModeWordWrap);
@@ -125,7 +131,7 @@ static void main_window_unload(Window *window) {
 static void init() {
   //create bitmaps
   my_icon_location = gbitmap_create_with_resource(RESOURCE_ID_LOCATION_BLACK);
-  //my_icon_stop = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_ACTION_ICON_LOCATION_BLACK);
+  my_icon_stop = gbitmap_create_with_resource(RESOURCE_ID_RESTART_BLACK);
   back_icon = gbitmap_create_with_resource(RESOURCE_ID_CAMERA120_BLACK);
     
   // Register callbacks

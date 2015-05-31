@@ -9,6 +9,11 @@
     "resources": {
         "media": [
             {
+                "file": "images/restart13x13.png",
+                "name": "RESTART",
+                "type": "png-trans"
+            },
+            {
                 "file": "images/camera120_trans.png",
                 "name": "CAMERA120",
                 "type": "png-trans"
@@ -16,11 +21,6 @@
             {
                 "file": "images/location_icon.png",
                 "name": "LOCATION",
-                "type": "png-trans"
-            },
-            {
-                "file": "images/location.png",
-                "name": "IMAGE_ACTION_ICON_LOCATION",
                 "type": "png-trans"
             },
             {
