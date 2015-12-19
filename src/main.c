@@ -81,19 +81,20 @@ static void main_window_load(Window *window) {
   // at the top of the app window.
 
   GPoint center = grect_center_point(&bounds);
-#ifdef PBL_PLATFORM_BASALT
   GSize image_size = gbitmap_get_bounds(back_icon).size;
-#else
-  GSize image_size = back_icon->bounds.size;
-#endif
-  GRect image_frame = GRect(center.x-8, center.y-10, image_size.w, image_size.h);
+  
+    //GRect image_frame = GRect(center.x-8, center.y-10, image_size.w, image_size.h);
+  //image_frame.origin.x -= image_size.w / 2;
+  //image_frame.origin.y -= image_size.h / 2;
+  
+  GRect image_frame = GRect(center.x-14, center.y-10, image_size.w, image_size.h);
   image_frame.origin.x -= image_size.w / 2;
   image_frame.origin.y -= image_size.h / 2;
-  
+    
   // Use GCompOpClear to display the black portions of the image
   s_black_layer = bitmap_layer_create(image_frame);
   bitmap_layer_set_bitmap(s_black_layer, back_icon);
-  bitmap_layer_set_compositing_mode(s_black_layer, GCompOpClear);
+  bitmap_layer_set_compositing_mode(s_black_layer, GCompOpSet);
   layer_add_child(window_layer, bitmap_layer_get_layer(s_black_layer));
   //**************************************************************************************************
   
@@ -111,7 +112,7 @@ static void main_window_load(Window *window) {
   
     
   // Create output TextLayer
-  s_output_layer = text_layer_create(GRect(8, 130, 110, 25));
+  s_output_layer = text_layer_create(GRect(5, 135, 105, 25));
   //text_layer_set_font(s_output_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24));
   text_layer_set_text(s_output_layer, " Save pos");
   text_layer_set_text_color(s_output_layer,GColorWhite);
@@ -132,7 +133,8 @@ static void init() {
   //create bitmaps
   my_icon_location = gbitmap_create_with_resource(RESOURCE_ID_LOCATION_BLACK);
   my_icon_stop = gbitmap_create_with_resource(RESOURCE_ID_RESTART_BLACK);
-  back_icon = gbitmap_create_with_resource(RESOURCE_ID_CAMERA120_BLACK);
+  //back_icon = gbitmap_create_with_resource(RESOURCE_ID_CAMERA120_BLACK);
+  back_icon = gbitmap_create_with_resource(RESOURCE_ID_CAMERA100);
     
   // Register callbacks
   app_message_register_inbox_received(inbox_received_callback);

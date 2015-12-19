@@ -3,11 +3,26 @@
     "capabilities": [
         ""
     ],
-    "companyName": "alexwtz@gmail.com",
-    "longName": "PhotoGPS",
+    "companyName": "alexwtz",
+    "longName": "Photo GPS",
     "projectType": "native",
     "resources": {
         "media": [
+            {
+                "file": "images/icon28x28.png",
+                "menuIcon": true,
+                "name": "ICON_28",
+                "type": "bitmap"
+            },
+            {
+                "file": "images/camera100_trans.png",
+                "name": "CAMERA100",
+                "targetPlatforms": [
+                    "aplite",
+                    "basalt"
+                ],
+                "type": "bitmap"
+            },
             {
                 "file": "images/restart13x13.png",
                 "name": "RESTART",
@@ -22,12 +37,6 @@
                 "file": "images/location_icon.png",
                 "name": "LOCATION",
                 "type": "png-trans"
-            },
-            {
-                "file": "images/icon28x28.png",
-                "menuIcon": true,
-                "name": "ICON_28",
-                "type": "png"
             }
         ]
     },
@@ -38,7 +47,7 @@
         "basalt"
     ],
     "uuid": "53f5bf60-73bc-4a9b-9f28-97a9a92923b9",
-    "versionLabel": "1.0",
+    "versionLabel": "1.1",
     "watchapp": {
         "watchface": false
     }
